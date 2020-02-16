@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="StudentTermAccount" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5c9034e4-030c-41dd-ab11-11573912cfa0">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQLConnection"/>
+	<parameter name="personId" class="java.lang.Long"/>
+	<parameter name="termId" class="java.lang.Integer"/>
+	<parameter name="logo" class="java.awt.Image"/>
+	<parameter name="footer" class="java.awt.Image"/>
+	<queryString language="SQL">
+		<![CDATA[CALL getStudentTuitionTermAccountJasper($P{personId}, $P{termId})]]>
+	</queryString>
+	<field name="personId" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="personId"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tuition"/>
+	</field>
+	<field name="receipt_no" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="receipt_no"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tuition"/>
+	</field>
+	<field name="term" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="term"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="term"/>
+	</field>
+	<field name="transaction_date" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="transaction_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tuition"/>
+	</field>
+	<field name="category" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="category"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="paymentcategory"/>
+	</field>
+	<field name="method" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="method"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="paymentmethod"/>
+	</field>
+	<field name="ref_no" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ref_no"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tuition"/>
+	</field>
+	<field name="debit" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="debit"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tuition"/>
+	</field>
+	<field name="credit" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="credit"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tuition"/>
+	</field>
+	<field name="balance" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="balance"/>
+	</field>
+	<field name="idno" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="idno"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="person"/>
+	</field>
+	<field name="passport" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="passport"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="person"/>
+	</field>
+	<field name="firstName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="firstName"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="person"/>
+	</field>
+	<field name="lastName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="lastName"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="person"/>
+	</field>
+	<field name="otherName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="otherName"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="person"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="106" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement x="444" y="0" width="356" height="86" uuid="3b534ec5-c4f9-4d61-9943-f50683690e63"/>
+				<imageExpression><![CDATA[$P{logo.}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="191" splitType="Stretch">
+			<textField>
+				<reportElement x="450" y="50" width="170" height="30" uuid="0fe3f53b-64a8-4d15-a16a-016e95b96c09"/>
+				<textElement>
+					<font fontName="Segoe UI" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{personId}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="320" y="50" width="130" height="30" uuid="f11571d2-e811-4bc1-826e-b673a07ad554"/>
+				<textElement>
+					<font fontName="Segoe UI" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Campus ID:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="50" width="130" height="30" uuid="89cf47d9-1bd6-4767-83ec-d339b0520c58"/>
+				<textElement>
+					<font fontName="Segoe UI" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Last Name:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="130" y="50" width="140" height="30" uuid="124b4e84-8cc2-4bff-92e8-6d43fcb4bdff"/>
+				<textElement>
+					<font fontName="Segoe UI" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lastName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="80" width="130" height="30" uuid="67a94e49-d05c-46f0-aad7-ef79df7f1b08"/>
+				<textElement>
+					<font fontName="Segoe UI" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[First Name:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="130" y="80" width="140" height="30" uuid="c7081abf-41e4-4744-9db7-5eac76e5da2d"/>
+				<textElement>
+					<font fontName="Segoe UI" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{firstName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="110" width="130" height="30" uuid="5b1d4aaf-1b69-4ca4-b2dd-7c2567a567a1"/>
+				<textElement>
+					<font fontName="Segoe UI" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Other Name:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="130" y="110" width="140" height="30" uuid="0ee1fdd9-4ef8-48f4-9a0a-f5febba6243a"/>
+				<textElement>
+					<font fontName="Segoe UI" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{otherName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="320" y="80" width="130" height="30" uuid="e983efdc-01be-43b2-a4c8-e33f425b5e59"/>
+				<textElement>
+					<font fontName="Segoe UI" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[National ID:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="110" width="130" height="30" uuid="b1aac8ef-14b5-477b-ac60-cdfd7b007c52"/>
+				<textElement>
+					<font fontName="Segoe UI" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Passport:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="450" y="80" width="170" height="30" uuid="9be91ad0-8681-4c75-8da8-d5b4e6f9e0ed"/>
+				<textElement>
+					<font fontName="Segoe UI" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="110" width="170" height="30" uuid="b58d1053-d14b-4339-ba0d-cdcb3fd9bc5f"/>
+				<textElement>
+					<font fontName="Segoe UI" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{passport}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="560" y="160" width="244" height="30" forecolor="#080707" uuid="27a2ce25-8696-498a-ae06-bc6e22ef7bbb"/>
+				<textElement textAlignment="Right">
+					<font fontName="Segoe UI" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="20" width="270" height="30" uuid="13231fc6-2dea-43c4-ad01-a978d7de60c7"/>
+				<textElement>
+					<font fontName="Segoe UI" size="18" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Personal Information]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="160" width="210" height="30" uuid="6ffba2d5-f3ce-4a8a-bf74-944fa1913217"/>
+				<textElement>
+					<font fontName="Segoe UI" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TUITION FEE ACCOUNT:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="210" y="160" width="200" height="30" uuid="03babe00-685d-4d73-9298-289748cc3c23"/>
+				<textElement>
+					<font fontName="Segoe UI" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{term}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="0" width="80" height="30" uuid="f29f747e-e6ef-4ddb-bb56-6e2352667b15"/>
+				<textElement>
+					<font fontName="Segoe UI" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Receipt]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="160" height="30" uuid="155a4b66-efa0-49a2-831e-24576af07af3"/>
+				<textElement>
+					<font fontName="Segoe UI" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="0" width="120" height="30" uuid="8e548828-4a0c-42d5-906e-7b671127fa34"/>
+				<textElement>
+					<font fontName="Segoe UI" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Category]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="410" y="0" width="110" height="30" uuid="c1e9a40f-f59c-43e5-ad9e-a5874d5d3152"/>
+				<textElement>
+					<font fontName="Segoe UI" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RefNo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="526" y="-1" width="90" height="30" uuid="8fc52eb2-da88-4d72-80bc-9766bfe16ff6"/>
+				<textElement>
+					<font fontName="Segoe UI" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Debit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="611" y="-1" width="90" height="30" uuid="417f2913-1296-4137-aa1e-edad1647a5a5"/>
+				<textElement>
+					<font fontName="Segoe UI" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Credit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="701" y="0" width="99" height="30" uuid="84b84349-d955-4fe9-8f32-cfee33491834"/>
+				<textElement>
+					<font fontName="Segoe UI" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Balance]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="30" width="800" height="1" uuid="dc5454b2-2a28-43f0-a7d3-1e5464442e5a"/>
+			</line>
+			<line>
+				<reportElement x="1" y="-1" width="799" height="1" uuid="51c01b33-237d-4ff3-bf2f-e76647a94ce5"/>
+			</line>
+			<line>
+				<reportElement x="800" y="0" width="1" height="30" uuid="b587801c-1fd8-4e47-a1ac-a39b7d4523df"/>
+			</line>
+			<line>
+				<reportElement x="0" y="-1" width="1" height="31" uuid="2a8b8026-0209-4ac0-86e9-a776ddd92953"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="0" width="80" height="30" uuid="8d41715a-aad1-4c1a-8a66-4333c468c4db">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8e669fc7-d004-4c3f-80af-ff7e12c026d3"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Segoe UI" size="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{receipt_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="160" height="30" uuid="f3c4422f-e339-4c78-baa0-3a5b3450e1fa">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c439c192-fbaf-4aca-8230-68637d6fa9cd"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Segoe UI" size="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{transaction_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="0" width="120" height="30" uuid="70d08124-5c20-4c87-858a-f9c97e74f379">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="58c4c0f9-78bc-4528-b007-c1ef8393f560"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Segoe UI" size="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{category}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="410" y="0" width="110" height="30" uuid="fd6e9959-716b-462a-aca3-0e230fb7c3ba">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2f8612d0-5bfc-4f3d-aa6b-e5f0e59921cb"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Segoe UI" size="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ref_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="521" y="-3" width="90" height="30" uuid="f6c1f9ba-e040-4d1e-a876-fab550fd227d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4cc0449b-3a74-4fa0-8476-e2ea94c672d1"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Segoe UI" size="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{debit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="610" y="-3" width="90" height="30" uuid="1fb49215-73ae-43f2-ada3-bbf05ca96da0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4a9d9f89-8153-447d-a9cf-382017d0a6d8"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Segoe UI" size="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{credit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="701" y="0" width="99" height="30" uuid="ac7e41e0-0d4b-472f-af4f-d06c4e2c8983">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1e0162ae-d004-4e8a-8463-b9f72f317cd2"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Segoe UI" size="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{balance} < 0)? (-1*$F{balance})+" Dr" : $F{balance}+" Cr"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="134" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement x="160" y="30" width="534" height="84" uuid="548de0e1-33dc-4416-9d60-a97e6eca4964"/>
+				<imageExpression><![CDATA["footer.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="680" y="0" width="80" height="20" forecolor="#050505" uuid="10c07b43-fc3c-46e0-b970-36d4f2390c41"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="760" y="0" width="40" height="20" forecolor="#050505" uuid="050650ce-40e8-494b-ac5c-9798adcd4c81"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

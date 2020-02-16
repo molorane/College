@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GetStudentMarks" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="22cb67f9-da36-48e2-9409-fb718c0f0ea2">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQLConnection"/>
+	<parameter name="campusCode" class="java.lang.Integer"/>
+	<parameter name="moduleCode" class="java.lang.String"/>
+	<parameter name="termId" class="java.lang.Integer"/>
+	<parameter name="assId" class="java.lang.Integer"/>
+	<parameter name="logo" class="java.awt.Image"/>
+	<parameter name="footer" class="java.awt.Image"/>
+	<queryString language="SQL">
+		<![CDATA[CALL getStudentMarksJasper($P{campusCode},$P{moduleCode},$P{termId},$P{assId})]]>
+	</queryString>
+	<field name="moduleCode" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="moduleCode"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="assessment"/>
+	</field>
+	<field name="module" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="module"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="module"/>
+	</field>
+	<field name="level" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="level"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="module"/>
+	</field>
+	<field name="term" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="term"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="term"/>
+	</field>
+	<field name="personId" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="personId"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="grade"/>
+	</field>
+	<field name="firstName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="firstName"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="person"/>
+	</field>
+	<field name="lastName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="lastName"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="person"/>
+	</field>
+	<field name="otherName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="otherName"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="person"/>
+	</field>
+	<field name="mark" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="mark"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="grade"/>
+	</field>
+	<field name="gradecategory" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="gradecategory"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="gradecategory"/>
+	</field>
+	<field name="campusABR" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="campusABR"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="campus"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="107" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement x="200" y="0" width="356" height="86" uuid="72fc2740-2d0f-4f52-94a7-486bcf863d24"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="134" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="554" height="30" uuid="ae626a87-094c-4b36-9e78-8f39848ad003"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI" size="18" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Marksheet]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="30" width="120" height="20" uuid="f804300c-b218-4f6f-9043-47a5d456a3d6"/>
+				<textElement>
+					<font fontName="Segoe UI" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Module code:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="50" width="120" height="20" uuid="8af9e1d2-ea51-4270-9356-cb4016d3d5f5"/>
+				<textElement>
+					<font fontName="Segoe UI" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Module:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="70" width="120" height="20" uuid="27d0c263-cf20-478f-90fd-7a08d12301cb"/>
+				<textElement>
+					<font fontName="Segoe UI" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Term:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="120" y="30" width="240" height="20" uuid="d393bc68-3aa1-4298-a04c-1d5702961ddf"/>
+				<textElement>
+					<font fontName="Segoe UI" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{moduleCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="50" width="380" height="20" uuid="cab706a2-e9bc-49a3-a7ae-132662f79119"/>
+				<textElement>
+					<font fontName="Segoe UI" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{module}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="70" width="240" height="20" uuid="fc652d34-8b49-4385-b59f-21ce771b5f02"/>
+				<textElement>
+					<font fontName="Segoe UI" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{term}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="90" width="120" height="20" uuid="fb9adb02-0048-48ea-b104-0daa2cf826f8"/>
+				<textElement>
+					<font fontName="Segoe UI" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Grade Category:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="120" y="90" width="240" height="20" uuid="1c79f5c6-2af5-41d0-ae41-fc865a9f43a7"/>
+				<textElement>
+					<font fontName="Segoe UI" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gradecategory}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="380" y="110" width="174" height="20" forecolor="#080707" uuid="218fa4e2-137b-4a48-a4b6-432b31988ece"/>
+				<textElement textAlignment="Right">
+					<font fontName="Segoe UI" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="110" width="127" height="20" uuid="fb0cee60-eee9-479e-9ef3-35bac1a27646"/>
+				<textElement>
+					<font fontName="Segoe UI" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{campusABR}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="110" width="120" height="20" uuid="3725e405-38c5-47c6-b41e-56012882ec29"/>
+				<textElement>
+					<font fontName="Segoe UI" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Campus:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="3" width="100" height="27" uuid="7bcf8f39-fa4a-4cdb-af8f-aa6ea37e26f9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ddd0176d-fc9e-441b-9020-d110630d2d7d"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[StudentNo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="3" width="120" height="27" uuid="8498af22-2fab-497a-9821-57f752558c2f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e13884d7-58fd-4dac-b9d4-6673bb0f19a6"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FirstName]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="227" y="3" width="143" height="29" uuid="e4af04e7-bcdf-4fb0-a202-c11089c5c08b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7c124fe7-905f-4343-b770-8a75943cccef"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LastName]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="2" width="100" height="30" uuid="e66edaf7-038d-435e-9dc0-bfe69b12905a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0fcc423e-9283-4f3a-ba5f-56185f7dfc53"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OtherName]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="490" y="3" width="64" height="27" uuid="a267d776-d824-4b48-a334-aa8d2ff9c827">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0b520be9-9f5e-4c7d-9535-59eef342f27e"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Grade]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="30" width="554" height="1" uuid="52808bc0-b1ed-49e9-ac24-77a4d728baff"/>
+			</line>
+			<line>
+				<reportElement x="0" y="2" width="554" height="1" uuid="22816ae8-25fc-4051-b8bb-e652852e317c"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="4318606f-df8c-401b-ba9c-e436a017a79a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ddd0176d-fc9e-441b-9020-d110630d2d7d"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Segoe UI" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{personId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="120" height="20" uuid="f4d1de62-39be-46f4-bf07-9334ab17790b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e13884d7-58fd-4dac-b9d4-6673bb0f19a6"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Segoe UI" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{firstName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="227" y="0" width="143" height="20" uuid="4b22f56b-7cc3-46a5-88e8-699a4544c5b8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7c124fe7-905f-4343-b770-8a75943cccef"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Segoe UI" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lastName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="0" width="100" height="20" uuid="5ea05815-f053-4c96-a86d-071b97c2bd04">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0fcc423e-9283-4f3a-ba5f-56185f7dfc53"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Segoe UI" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{otherName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="490" y="0" width="64" height="20" uuid="473882f3-e5ef-48e6-a7af-5367690577b2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0b520be9-9f5e-4c7d-9535-59eef342f27e"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Segoe UI" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mark}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="121" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement x="10" y="30" width="534" height="84" uuid="b03c5695-7fdb-4237-b318-c2aed9731bf1"/>
+				<imageExpression><![CDATA[$P{footer}]]></imageExpression>
+			</image>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="430" y="0" width="80" height="20" forecolor="#050505" uuid="efe5831d-dc64-41d4-b6e5-f5aef801980c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="510" y="0" width="40" height="20" forecolor="#050505" uuid="5f5a7dec-fab1-4188-8d2b-d707fc3b08af"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="11" splitType="Stretch"/>
+	</summary>
+</jasperReport>
